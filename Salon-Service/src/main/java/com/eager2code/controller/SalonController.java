@@ -5,6 +5,7 @@ import com.eager2code.model.Salon;
 import com.eager2code.pojo.SalonDTO;
 import com.eager2code.pojo.UserDTO;
 import com.eager2code.service.SalonService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class SalonController {
     private  final SalonService salonService;
 
     @PostMapping("/createSalon")
-    public ResponseEntity<String> createSalon(@RequestBody SalonDTO salonDto){
+    public ResponseEntity<String> createSalon(@RequestBody @Valid SalonDTO salonDto){
         UserDTO userDTO = new UserDTO();
         userDTO.setId(1L);
         Salon salon = salonService.createSalon(salonDto,userDTO);
@@ -64,7 +65,7 @@ public class SalonController {
     ) throws Exception {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(1L);
-        SalonDTO salonDTO = salonService.getSalonById(ownerId);
+        SalonDTO salonDTO = salonService.getSalonByOwnerId(ownerId);
         return ResponseEntity.ok(salonDTO);
     }
 

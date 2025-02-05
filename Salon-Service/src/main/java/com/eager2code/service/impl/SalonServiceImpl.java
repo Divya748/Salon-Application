@@ -21,16 +21,6 @@ public class SalonServiceImpl implements SalonService {
     public Salon createSalon(SalonDTO salonDTO, UserDTO userDTO) {
 
         Salon salon = SalonMapper.MAPPER.mapToSalon(salonDTO);
-//        Salon salon = new Salon();
-//        salon.setAddress(salonDTO.getAddress());
-//        salon.setCity(salonDTO.getCity());
-//        salon.setImages(salonDTO.getImages());
-//        salon.setEmail(salonDTO.getEmail());
-//        salon.setName(salonDTO.getName());
-//        salon.setOwnerId(userDTO.getId());
-//        salon.setOpenTime(salonDTO.getOpenTime());
-//        salon.setCloseTime(salonDTO.getCloseTime());
-//        salon.setPhoneNumber(salonDTO.getPhoneNumber());
         return salonRepository.save(salon);
     }
 
