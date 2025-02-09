@@ -18,14 +18,7 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-    @PostMapping("/saveCategories")
-    public ResponseEntity<String> saveCategories(@RequestBody CategoryDTO categoryDTO){
-        SalonDTO salonDTO = new SalonDTO();
-        salonDTO.setId(1L);
-        categoryService.saveCategory(categoryDTO,salonDTO);
-        return new ResponseEntity<>(
-                "Categories are saved successfully", HttpStatus.CREATED);
-    }
+
 
     @GetMapping("/getBySalon/{salonId}")
     public ResponseEntity<Set<CategoryDTO>> getCategoriesBySalon(
@@ -34,7 +27,6 @@ public class CategoryController {
         Set<CategoryDTO> categories = categoryService.getAllCategoriesBySalonId(salonId);
         return ResponseEntity.ok(categories);
     }
-
     @GetMapping("/getCategoryById/{categoryId}")
     public ResponseEntity<CategoryDTO> getCategoryById(
             @PathVariable Long categoryId
@@ -43,13 +35,7 @@ public class CategoryController {
         return ResponseEntity.ok(categoryDTO);
     }
 
-    @DeleteMapping("/delCategory/{categoryId}")
-    public ResponseEntity<String> deleteCategory(
-            @PathVariable Long categoryId) throws Exception {
-        categoryService.deleteCategoryById(categoryId);
-        return new ResponseEntity<>(
-                "Categories are deleted successfully", HttpStatus.OK);
-    }
+
 
 
 }
