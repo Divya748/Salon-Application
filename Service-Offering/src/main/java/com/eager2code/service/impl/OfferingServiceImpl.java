@@ -33,7 +33,8 @@ public class OfferingServiceImpl implements OfferingService {
                                        SalonDTO salonDTO, ServiceDto serviceDto) {
 
         ServiceOffering service =
-                offeringMapper.mapDtoToEntity(serviceDto);
+                offeringMapper.mapFieldsToServiceFields(
+                        salonDTO,serviceDto,categoryDto);
       ServiceOffering  offering =  offeringRepository.save(service);
       return offeringMapper.mapEntityToDto(offering);
     }

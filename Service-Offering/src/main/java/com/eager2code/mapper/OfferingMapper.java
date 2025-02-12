@@ -22,13 +22,13 @@ public interface OfferingMapper {
 
     ServiceDto mapEntityToDto(ServiceOffering serviceOffering);
 
-//    @Mapping(target = "id", ignore = true)
-//    @Mapping(target = "image", ignore = true)
-//    @Mapping(target = "categoryId",source = "categoryDto.id")
-//    @Mapping(target = "salonId",source = "salonDTO.id")
-//    @Mapping(target = "name", source = "serviceDto.name")
-//    ServiceOffering updateService(SalonDTO salonDTO,
-//                             ServiceDto serviceDto, CategoryDto categoryDto);
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "image", ignore = true)
+    @Mapping(target = "categoryId",source = "categoryDto.id")
+    @Mapping(target = "salonId",source = "salonDTO.id")
+    @Mapping(target = "name", source = "serviceDto.name")
+    ServiceOffering mapFieldsToServiceFields(SalonDTO salonDTO,
+                             ServiceDto serviceDto, CategoryDto categoryDto);
 
     ServiceOffering updateExistingDataToNewData(ServiceDto source,
                                      @MappingTarget ServiceOffering target);

@@ -16,4 +16,5 @@ public interface OfferingService {
 
     Set<ServiceDto> getServicesByIds(Set<Long> ids);
 
+
 }
