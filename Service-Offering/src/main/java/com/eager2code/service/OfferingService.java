@@ -10,7 +10,7 @@ public interface OfferingService {
      ServiceDto createNewService(CategoryDto categoryDto, SalonDTO salonDTO,
                                  ServiceDto serviceDto);
     ServiceDto updateService(Long serviceId,
-                                ServiceDto serviceDto);
+                                ServiceDto serviceDto) throws Exception;
 
     Set<ServiceDto> getAllServicesBySalonId(Long salonId,Long categoryId);
 
